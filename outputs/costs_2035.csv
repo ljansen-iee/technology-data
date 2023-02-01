@@ -27,9 +27,10 @@ CCGT,c_v,0.15,50oC/100oC,"Danish Energy Agency, technology_data_for_el_and_dh.xl
 CCGT,efficiency,0.58,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Electricity efficiency, annual average"
 CCGT,investment,822.5,EUR/kW,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Nominal investment"
 CCGT,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Technical lifetime"
-CH4 (g) fill compressor station,FOM,1.7,%/year,Assume same as for H2 (g) fill compressor station.,
-CH4 (g) fill compressor station,investment,1498.95,EUR/MW_CH4,"Guesstimate, based on H2 (g) pipeline and fill compressor station cost.",
-CH4 (g) fill compressor station,lifetime,20.0,years,Assume same as for H2 (g) fill compressor station.,
+CH4 (g) fill compressor station,FOM,4.0,%/year,"Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
+CH4 (g) fill compressor station,electricity-input,0.03,MWh_el/MWh_CH4,"Capra, Federico; Magli, Francesco; Gatti, Manuele (2019): Biomethane liquefaction: A systematic comparative analysis of refrigeration technologies. In: Applied Thermal Engineering 158 (2), S. 113815. DOI: 10.1016/j.applthermaleng.2019.113815.",
+CH4 (g) fill compressor station,investment,990805.48,Euro/MW_el,"eigene Annahmen auf Basis von Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
+CH4 (g) fill compressor station,lifetime,20.0,years,"eige Annahmen auf Basis von Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
 CH4 (g) pipeline,FOM,1.5,%/year,Assume same as for H2 (g) pipeline in 2050 (CH4 pipeline as mature technology).,
 CH4 (g) pipeline,investment,79.0,EUR/MW/km,Guesstimate.,
 CH4 (g) pipeline,lifetime,50.0,years,Assume same as for H2 (g) pipeline in 2050 (CH4 pipeline as mature technology).,
@@ -43,9 +44,10 @@ CH4 (l) transport ship,lifetime,25.0,years,"Fasihi et al 2017, table 1, https://
 CH4 evaporation,FOM,3.5,%/year,"Lochner and Bothe (2009): https://doi.org/10.1016/j.enpol.2008.12.012 and Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
 CH4 evaporation,investment,87.6,EUR/kW_CH4,"Calculated, based on Lochner and Bothe (2009): https://doi.org/10.1016/j.enpol.2008.12.012 and Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
 CH4 evaporation,lifetime,30.0,years,"Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
-CH4 liquefaction,FOM,3.5,%/year,"Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
-CH4 liquefaction,investment,232.13,EUR/kW_CH4,"Calculated, based on Lochner and Bothe (2009): https://doi.org/10.1016/j.enpol.2008.12.012 and Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
-CH4 liquefaction,lifetime,25.0,years,"Fasihi et al 2017, table 1, https://www.mdpi.com/2071-1050/9/2/306",
+CH4 liquefaction,FOM,4.0,%/year,"Raj, Ratan; Suman, Ravi; Ghandehariun, Samane; Kumar, Amit; Tiwari, Manoj K. (2016): A techno-economic assessment of the liquefied natural gas (LNG) production facilities in Western Canada. In: Sustainable Energy Technologies and Assessments 18 (1), S. 140-152.",
+CH4 liquefaction,electricity-input,0.08,MWh_el/MWh_CH4,"Capra, Federico; Magli, Francesco; Gatti, Manuele (2019): Biomethane liquefaction: A systematic comparative analysis of refrigeration technologies. In: Applied Thermal Engineering 158 (2), S. 113815. DOI: 10.1016/j.applthermaleng.2019.113815.",
+CH4 liquefaction,investment,4380000.0,Euro/t_CH4/h,"Eigene Annahme (Inv. Scale: 0,865) nach: Raj, Ratan; Suman, Ravi; Ghandehariun, Samane; Kumar, Amit; Tiwari, Manoj K. (2016): A techno-economic assessment of the liquefied natural gas (LNG) production facilities in Western Canada. In: Sustainable Energy Technologies and Assessments 18 (1), S. 140-152.",
+CH4 liquefaction,lifetime,20.0,years,"Capra, Federico; Magli, Francesco; Gatti, Manuele (2019): Biomethane liquefaction: A systematic comparative analysis of refrigeration technologies. In: Applied Thermal Engineering 158 (2), S. 113815. DOI: 10.1016/j.applthermaleng.2019.113815.",
 CO2 liquefaction,FOM,5.0,%/year,Mitsubish Heavy Industries Ltd. and IEA (2004): https://ieaghg.org/docs/General_Docs/Reports/PH4-30%20Ship%20Transport.pdf .,
 CO2 liquefaction,investment,16.03,EUR/t_CO2/h,Mitsubish Heavy Industries Ltd. and IEA (2004): https://ieaghg.org/docs/General_Docs/Reports/PH4-30%20Ship%20Transport.pdf .,
 CO2 liquefaction,lifetime,25.0,years,"Guesstimate, based on CH4 liquefaction.",
@@ -61,11 +63,12 @@ FT fuel transport ship,FOM,5.0,%/year,"Assume comparable tanker as for LOHC tran
 FT fuel transport ship,capacity,75000.0,t_FTfuel,"Assume comparable tanker as for LOHC transport above, c.f. Runge et al 2020, Table 10, https://papers.ssrn.com/abstract=3623514 .",
 FT fuel transport ship,investment,31700578.34,EUR,"Assume comparable tanker as for LOHC transport above, c.f. Runge et al 2020, Table 10, https://papers.ssrn.com/abstract=3623514 .",
 FT fuel transport ship,lifetime,15.0,years,"Assume comparable tanker as for LOHC transport above, c.f. Runge et al 2020, Table 10, https://papers.ssrn.com/abstract=3623514 .",
-Fischer-Tropsch,FOM,3.0,%/year,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.3.2.1.",
+Fischer-Tropsch,FOM,5.0,%/year,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
 Fischer-Tropsch,capture rate,0.98,per unit,Assumption based on doi:10.1016/j.biombioe.2015.01.006,
-Fischer-Tropsch,efficiency,0.8,per unit,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.3.2.2.",
-Fischer-Tropsch,investment,608179.55,EUR/MW_FT,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), table 8: “Reference scenario”.",
-Fischer-Tropsch,lifetime,20.0,years,"Danish Energy Agency, Technology Data for Renewable Fuels (04/2022), Data sheet “Methanol to Power”.",
+Fischer-Tropsch,efficiency,0.76,per unit,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 95% (5% verfahrenstechnische Verluste),
+Fischer-Tropsch,investment,317647.06,Euro/MW_el,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+Fischer-Tropsch,lifetime,20.0,years,eigene Annahmen,
+Fischer-Tropsch,thermal-output,0.08,MWh_th/MWh_H2,"Verdegaal, Wolfgang Michael; Becker, Sebastian; Olshausen, Christian von (2015): Power-to-Liquids: Synthetisches Rohöl aus CO 2, Wasser und Sonne. In: Chemie Ingenieur Technik 87 (4), S. 340-346.",
 Gasnetz,FOM,2.5,%,"WEGE ZU EINEM KLIMANEUTRALEN ENERGIESYSEM, Anhang zur Studie, Fraunhofer-Institut für Solare Energiesysteme ISE, Freiburg",Gasnetz
 Gasnetz,investment,28.0,EUR/kWGas,"WEGE ZU EINEM KLIMANEUTRALEN ENERGIESYSEM, Anhang zur Studie, Fraunhofer-Institut für Solare Energiesysteme ISE, Freiburg",Gasnetz
 Gasnetz,lifetime,30.0,years,"WEGE ZU EINEM KLIMANEUTRALEN ENERGIESYSEM, Anhang zur Studie, Fraunhofer-Institut für Solare Energiesysteme ISE, Freiburg",Gasnetz
@@ -75,9 +78,10 @@ General liquid hydrocarbon storage (crude),lifetime,30.0,years,"Stelter and Nish
 General liquid hydrocarbon storage (product),FOM,6.25,%/year,"Stelter and Nishida 2013: https://webstore.iea.org/insights-series-2013-focus-on-energy-security , figure 7 and pg. 12 .",
 General liquid hydrocarbon storage (product),investment,169.79,EUR/m^3,"Stelter and Nishida 2013: https://webstore.iea.org/insights-series-2013-focus-on-energy-security , pg. 8F .",
 General liquid hydrocarbon storage (product),lifetime,30.0,years,"Stelter and Nishida 2013: https://webstore.iea.org/insights-series-2013-focus-on-energy-security , pg. 11.",
-H2 (g) fill compressor station,FOM,1.7,%/year,"Guidehouse 2020: European Hydrogen Backbone report, https://guidehouse.com/-/media/www/site/downloads/energy/2020/gh_european-hydrogen-backbone_report.pdf (table 3, table 5)",
-H2 (g) fill compressor station,investment,4478.0,EUR/MW_H2,"Danish Energy Agency, Technology Data for Energy Transport (2021), pg. 164, Figure 14 (Fill compressor).",
-H2 (g) fill compressor station,lifetime,20.0,years,"Danish Energy Agency, Technology Data for Energy Transport (2021), pg. 168, Figure 24 (Fill compressor).",
+H2 (g) fill compressor station,FOM,4.0,%/year,"Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
+H2 (g) fill compressor station,electricity-input,0.05,MWh_el/MWh_H2,eigene Annahmen,
+H2 (g) fill compressor station,investment,916225.6,Euro/MW_el,"Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
+H2 (g) fill compressor station,lifetime,20.0,years,eigene Annahmen,
 H2 (g) pipeline,FOM,2.75,%/year,"Danish Energy Agency, Technology Data for Energy Transport (2021), Excel datasheet: H2 140.",
 H2 (g) pipeline,investment,226.47,EUR/MW/km,European Hydrogen Backbone Report (June 2021): https://gasforclimate2050.eu/wp-content/uploads/2021/06/EHB_Analysing-the-future-demand-supply-and-transport-of-hydrogen_June-2021.pdf.,
 H2 (g) pipeline,lifetime,50.0,years,"Danish Energy Agency, Technology Data for Energy Transport (2021), Excel datasheet: H2 140.",
@@ -97,9 +101,10 @@ H2 (l) transport ship,lifetime,20.0,years,"Cihlar et al 2020: http://op.europa.e
 H2 evaporation,FOM,2.5,%/year,"DNV GL (2020): Study on the Import of Liquid Renewable Energy: Technology Cost Assessment, https://www.gie.eu/wp-content/uploads/filr/2598/DNV-GL_Study-GLE-Technologies-and-costs-analysis-on-imports-of-liquid-renewable-energy.pdf .",
 H2 evaporation,investment,121.88,EUR/kW_H2,"IRENA (2022): Global Hydrogen Trade to Meet the 1.5° Climate Goal: Technology Review of Hydrogen Carriers, https://www.irena.org/publications/2022/Apr/Global-hydrogen-trade-Part-II , pg. 62f.",
 H2 evaporation,lifetime,20.0,years,Guesstimate.,
-H2 liquefaction,FOM,2.5,%/year,"DNV GL (2020): Study on the Import of Liquid Renewable Energy: Technology Cost Assessment, https://www.gie.eu/wp-content/uploads/filr/2598/DNV-GL_Study-GLE-Technologies-and-costs-analysis-on-imports-of-liquid-renewable-energy.pdf .",
-H2 liquefaction,investment,783.5,EUR/kW_H2,"IRENA (2022): Global Hydrogen Trade to Meet the 1.5° Climate Goal: Technology Review of Hydrogen Carriers, https://www.irena.org/publications/2022/Apr/Global-hydrogen-trade-Part-II , pg. 62f.",
-H2 liquefaction,lifetime,20.0,years,"Reuß et al 2017, https://doi.org/10.1016/j.apenergy.2017.05.050 , Table 9.",
+H2 liquefaction,FOM,4.0,%/year,"Stolzenburg, K.; Mubbala, R. (2013): Integrated Design for Demonstration of Efficient Liquefaction of Hydrogen (IDEALHY). Fuel Cells and Hydrogen Joint Undertaking (FCH JU). Online verfügbar unter https://www.idealhy.eu/uploads/documents/IDEALHY_D3-16_Liquefaction_Report_web.pdf, zuletzt geprüft am 18.05.2021.",
+H2 liquefaction,electricity-input,0.2,MWh_el/MWh_H2,"Reuß, M.; Grube, T.; Robinius, M.; Preuster, P.; Wasserscheid, P.; d. Stolten (2017): Seasonal storage and alternative carriers: A flexible hydrogen supply chain model. In: Applied Energy 200 (12), S. 290-302.",
+H2 liquefaction,investment,3864.28,Euro/t_H2/a,"eigene Annahmen auf Basis von Stolzenburg, K.; Mubbala, R. (2013): Integrated Design for Demonstration of Efficient Liquefaction of Hydrogen (IDEALHY). Fuel Cells and Hydrogen Joint Undertaking (FCH JU). Online verfügbar unter https://www.idealhy.eu/uploads/documents/IDEALHY_D3-16_Liquefaction_Report_web.pdf, zuletzt geprüft am 18.05.2021.",
+H2 liquefaction,lifetime,20.0,years,"Stolzenburg, K.; Mubbala, R. (2013): Integrated Design for Demonstration of Efficient Liquefaction of Hydrogen (IDEALHY). Fuel Cells and Hydrogen Joint Undertaking (FCH JU). Online verfügbar unter https://www.idealhy.eu/uploads/documents/IDEALHY_D3-16_Liquefaction_Report_web.pdf, zuletzt geprüft am 18.05.2021.",
 H2 pipeline,FOM,3.0,%/year,TODO, from old pypsa cost assumptions
 H2 pipeline,investment,267.0,EUR/MW/km,Welder et al https://doi.org/10.1016/j.energy.2018.05.059, from old pypsa cost assumptions
 H2 pipeline,lifetime,40.0,years,TODO, from old pypsa cost assumptions
@@ -115,10 +120,12 @@ HVDC overhead,lifetime,40.0,years,"Hagspiel et al. (2014): doi:10.1016/j.energy.
 HVDC submarine,FOM,0.35,%/year,Purvins et al. (2018): https://doi.org/10.1016/j.jclepro.2018.03.095 .,
 HVDC submarine,investment,471.16,EUR/MW/km,Purvins et al. (2018): https://doi.org/10.1016/j.jclepro.2018.03.095 .,
 HVDC submarine,lifetime,40.0,years,Purvins et al. (2018): https://doi.org/10.1016/j.jclepro.2018.03.095 .,
-Haber-Bosch,FOM,3.0,%/year,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Fixed O&M
+Haber-Bosch,FOM,2.0,%/year,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",103 Hydrogen to Ammonia:  Fixed O&M
 Haber-Bosch,VOM,0.02,EUR/MWh_NH3,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Variable O&M
-Haber-Bosch,investment,1179.3,EUR/kW_NH3,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Specific investment
-Haber-Bosch,lifetime,30.0,years,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Technical lifetime
+Haber-Bosch,efficiency,0.83,per unit,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 95% (5% verfahrenstechnische Verluste),
+Haber-Bosch,investment,497058.82,Euro/MW_el,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",103 Hydrogen to Ammonia:  Specific investment
+Haber-Bosch,lifetime,20.0,years,eigene Annahmen,103 Hydrogen to Ammonia:  Technical lifetime
+Haber-Bosch,thermal-output,0.06,MWh_th/MWh_H2,"Rouwenhorst, K.H.R.; Krzywda, P. M.; Benes, N. E.; Mul, G.; Lefferts, L. (2021): Ammonia Production Technologies. In: Techno-Economic Challenges of Green Ammonia as an Energy Vector: Elsevier, S. 41–83.",
 LNG storage tank,FOM,2.0,%/year,"Guesstimate, based on H2 (l) storage tank with comparable requirements.",
 LNG storage tank,investment,611.59,EUR/m^3,"Hurskainen 2019, https://cris.vtt.fi/en/publications/liquid-organic-hydrogen-carriers-lohc-concept-evaluation-and-tech pg. 46 (59).",
 LNG storage tank,lifetime,20.0,years,"Guesstimate, based on H2 (l) storage tank with comparable requirements.",
@@ -178,15 +185,17 @@ SMR CC,lifetime,30.0,years,"IEA Global average levelised cost of hydrogen produc
 Steam methane reforming,FOM,3.0,%/year,"International Energy Agency (2015): Technology Roadmap Hydrogen and Fuel Cells , table 15.",
 Steam methane reforming,investment,470085.47,EUR/MW_H2,"International Energy Agency (2015): Technology Roadmap Hydrogen and Fuel Cells , table 15.",
 Steam methane reforming,lifetime,30.0,years,"International Energy Agency (2015): Technology Roadmap Hydrogen and Fuel Cells , table 15.",
-air separation unit,FOM,3.0,%/year,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Fixed O&M
-air separation unit,investment,662903.6,EUR/t_N2/h,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Specific investment
-air separation unit,lifetime,30.0,years,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",103 Hydrogen to Ammonia:  Technical lifetime
+air separation unit,FOM,2.0,%/year,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",103 Hydrogen to Ammonia:  Fixed O&M
+air separation unit,electricity-input,0.1,MWh/t_N2,"Rouwenhorst, K.H.R.; Krzywda, P. M.; Benes, N. E.; Mul, G.; Lefferts, L. (2021): Ammonia Production Technologies. In: Techno-Economic Challenges of Green Ammonia as an Energy Vector: Elsevier, S. 41–83.",
+air separation unit,investment,1362032.7,EUR/t_N2/h,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",103 Hydrogen to Ammonia:  Specific investment
+air separation unit,lifetime,20.0,years,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",103 Hydrogen to Ammonia:  Technical lifetime
 battery inverter,FOM,0.42,%/year,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Fixed O&M
 battery inverter,efficiency,0.96,per unit,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Round trip efficiency DC
 battery inverter,investment,130.0,EUR/kW,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Output capacity expansion cost investment
 battery inverter,lifetime,10.0,years,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx, Note K.",:  Technical lifetime
-battery storage,investment,118.0,EUR/kWh,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Energy storage expansion cost investment
-battery storage,lifetime,27.5,years,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Technical lifetime
+battery storage,FOM,1.0,%/year,"Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf",
+battery storage,investment,460880.43,Euro/MWh,"Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf",:  Energy storage expansion cost investment
+battery storage,lifetime,15.0,years,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",:  Technical lifetime
 biogas,CO2 stored,0.09,tCO2/MWh_th,Stoichiometric calculation,
 biogas,FOM,13.14,%/year,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx","81 Biogas Plant, Basic conf.:  Total O&M"
 biogas,capture rate,0.98,per unit,Assumption based on doi:10.1016/j.biombioe.2015.01.006,
@@ -249,11 +258,11 @@ cement capture,heat-input,0.69,MWh/tCO2,"Danish Energy Agency, technology_data_f
 cement capture,heat-output,1.51,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",401.c Post comb - Cement kiln
 cement capture,investment,2400000.0,EUR/(tCO2/h),"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",401.c Post comb - Cement kiln
 cement capture,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",401.c Post comb - Cement kiln
-central air-sourced heat pump,FOM,0.23,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Fixed O&M"
-central air-sourced heat pump,VOM,2.35,EUR/MWh_th,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Variable O&M"
-central air-sourced heat pump,efficiency,3.62,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Total efficiency , net, annual average"
-central air-sourced heat pump,investment,856.25,EUR/kW_th,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Specific investment"
-central air-sourced heat pump,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Technical lifetime"
+central air-sourced heat pump,FOM,1.45,%/year,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.","40 Comp. hp, airsource 3 MW:  Fixed O&M"
+central air-sourced heat pump,VOM,1.69,Euro/MWh_el,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.","40 Comp. hp, airsource 3 MW:  Variable O&M"
+central air-sourced heat pump,efficiency,3.03,per unit,"Eigene Annahmen auf Basis von Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.","40 Comp. hp, airsource 3 MW:  Total efficiency , net, annual average"
+central air-sourced heat pump,investment,1011000.0,Euro/MW_el,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.","40 Comp. hp, airsource 3 MW:  Specific investment"
+central air-sourced heat pump,lifetime,20.0,years,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.","40 Comp. hp, airsource 3 MW:  Technical lifetime"
 central coal CHP,FOM,1.63,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",01 Coal CHP:  Fixed O&M
 central coal CHP,VOM,2.81,EUR/MWh,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",01 Coal CHP:  Variable O&M
 central coal CHP,c_b,1.01,50oC/100oC,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",01 Coal CHP:  Cb coefficient
@@ -279,11 +288,11 @@ central ground-sourced heat pump,VOM,1.3,EUR/MWh_th,"Danish Energy Agency, techn
 central ground-sourced heat pump,efficiency,1.74,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Absorption heat pump, DH:  Total efficiency , net, annual average"
 central ground-sourced heat pump,investment,494.91,EUR/kW_th excluding drive energy,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Absorption heat pump, DH:  Nominal investment"
 central ground-sourced heat pump,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","40 Absorption heat pump, DH:  Technical lifetime"
-central resistive heater,FOM,1.66,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Fixed O&M
-central resistive heater,VOM,1.0,EUR/MWh_th,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Variable O&M
-central resistive heater,efficiency,0.99,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","41 Electric Boilers:  Total efficiency , net, annual average"
-central resistive heater,investment,60.0,EUR/kW_th,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Nominal investment; 10/15 kV; >10 MW
-central resistive heater,lifetime,20.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Technical lifetime
+central resistive heater,FOM,2.5,%/year,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",41 Electric Boilers:  Fixed O&M
+central resistive heater,VOM,0.4,Euro/MWh_el,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",41 Electric Boilers:  Variable O&M
+central resistive heater,efficiency,0.99,per unit,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.","41 Electric Boilers:  Total efficiency , net, annual average"
+central resistive heater,investment,100000.0,Euro/MW_el,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",41 Electric Boilers:  Nominal investment; 10/15 kV; >10 MW
+central resistive heater,lifetime,20.0,years,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",41 Electric Boilers:  Technical lifetime
 central solar thermal,FOM,1.4,%/year,HP, from old pypsa cost assumptions
 central solar thermal,investment,140000.0,EUR/1000m2,HP, from old pypsa cost assumptions
 central solar thermal,lifetime,20.0,years,HP, from old pypsa cost assumptions
@@ -361,14 +370,16 @@ digestible biomass to hydrogen,FOM,4.25,%/year,"Zech et.al. DBFZ Report Nr. 19. 
 digestible biomass to hydrogen,capture rate,0.98,per unit,Assumption based on doi:10.1016/j.biombioe.2015.01.006,
 digestible biomass to hydrogen,efficiency,0.39,per unit,"Zech et.al. DBFZ Report Nr. 19. Hy-NOW - Evaluierung der Verfahren und Technologien für die Bereitstellung von Wasserstoff auf Basis von Biomasse, DBFZ, 2014",
 digestible biomass to hydrogen,investment,2500.0,EUR/kW_th,"Zech et.al. DBFZ Report Nr. 19. Hy-NOW - Evaluierung der Verfahren und Technologien für die Bereitstellung von Wasserstoff auf Basis von Biomasse, DBFZ, 2014",
-direct air capture,FOM,4.95,%/year,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
+direct air capture,FOM,4.0,%/year,"Eigene Annahmen auf Basis von Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980. und auf Basis von www.bmwi.de/Redaktion/DE/Downloads/Studien/transformationspfade-fuer-strombasierte-energietraeger.pdf?__blob=publicationFile",403.a Direct air capture
+direct air capture,VOM,1.27,Euro/MWh_el,"Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980.",
 direct air capture,compression-electricity-input,0.15,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
 direct air capture,compression-heat-output,0.2,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
-direct air capture,electricity-input,0.31,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
+direct air capture,electricity-input,255.15,MWh_el/MWh_CH4,"Eigene Annahmen auf Basis von Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980. und auf Basis von www.bmwi.de/Redaktion/DE/Downloads/Studien/transformationspfade-fuer-strombasierte-energietraeger.pdf?__blob=publicationFile",403.a Direct air capture
 direct air capture,heat-input,1.75,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
 direct air capture,heat-output,0.88,MWh/tCO2,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
-direct air capture,investment,5500000.0,EUR/(tCO2/h),"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
-direct air capture,lifetime,20.0,years,"Danish Energy Agency, technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture
+direct air capture,investment,3570390.85,Euro/t_CO2/h,"Eigene Annahmen auf Basis von Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980. und auf Basis von www.bmwi.de/Redaktion/DE/Downloads/Studien/transformationspfade-fuer-strombasierte-energietraeger.pdf?__blob=publicationFile",403.a Direct air capture
+direct air capture,lifetime,30.0,years,"Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980.",403.a Direct air capture
+direct air capture,thermal-input,1312.2,MWh_th/MWh_CH4,"Eigene Annahmen auf Basis von Fasihi, Mahdi; Efimova, Olga; Breyer, Christian (2019): Techno-economic assessment of CO2 direct air capture plants. In: Journal of Cleaner Production 224, S. 957–980. und auf Basis von www.bmwi.de/Redaktion/DE/Downloads/Studien/transformationspfade-fuer-strombasierte-energietraeger.pdf?__blob=publicationFile",
 electric boiler steam,FOM,1.42,%/year,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",310.1 Electric boiler steam  :  Fixed O&M
 electric boiler steam,VOM,0.83,EUR/MWh,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",310.1 Electric boiler steam  :  Variable O&M
 electric boiler steam,efficiency,0.99,per unit,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx","310.1 Electric boiler steam  :  Total efficiency, net, annual average"
@@ -384,6 +395,15 @@ electrolysis,FOM,4.0,%/year,"Danish Energy Agency, data_sheets_for_renewable_fue
 electrolysis,efficiency,0.67,per unit,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",86 PEMEC 100MW:  Hydrogen
 electrolysis,investment,550.0,EUR/kW_e,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",86 PEMEC 100MW:  Specific investment
 electrolysis,lifetime,26.5,years,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx",86 PEMEC 100MW:  Technical lifetime
+electrolysis PEMEC,FOM,5.0,%/year,"Eigene Annahmen auf Basis von Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis PEMEC,efficiency,0.71,per unit,"Eigene Annahmen auf Basis von Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis PEMEC,investment,451749.33,Euro/MW_el,"Eigene Annahmen auf Basis von Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis PEMEC,lifetime,20.0,years,"Eigene Annahmen auf Basis von Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis SOEC,FOM,3.0,%/year,"Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis SOEC,efficiency,0.88,per unit,"Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis SOEC,investment,528642.83,Euro/MW_el,"Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis SOEC,lifetime,20.0,years,"Smolinka, Tom & Wiebe, Nikolai & Sterchele, Philip & Palzer, Andreas & Lehner, Franz & Jansen, Malte & Kiemel, Steffen & Miehe, Robert & Wahren, Sylvia & Zimmermann, Fabian. (2018). Studie IndWEDe: Industrialisierung der Wasserelektrolyse in Deutschland: Chancen und Herausforderungen für nachhaltigen Wasserstoff für Verkehr, Strom und Wärme.",
+electrolysis SOEC,thermal-input,0.18,MWh_th/MWh_H2,"Verdegaal, Wolfgang Michael; Becker, Sebastian; Olshausen, Christian von (2015): Power-to-Liquids: Synthetisches Rohöl aus CO 2, Wasser und Sonne. In: Chemie Ingenieur Technik 87 (4), S. 340-346.",
 fuel cell,FOM,5.0,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Fixed O&M
 fuel cell,c_b,1.25,50oC/100oC,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Cb coefficient
 fuel cell,efficiency,0.5,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","12 LT-PEMFC CHP:  Electricity efficiency, annual average"
@@ -396,9 +416,9 @@ gas boiler steam,VOM,1.0,EUR/MWh,"Danish Energy Agency, technology_data_for_indu
 gas boiler steam,efficiency,0.93,per unit,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx","311.1c Steam boiler Gas:  Total efficiency, net, annual average"
 gas boiler steam,investment,45.45,EUR/kW,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",311.1c Steam boiler Gas:  Nominal investment
 gas boiler steam,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",311.1c Steam boiler Gas:  Technical lifetime
-gas storage,FOM,3.59,%,Danish Energy Agency,"150 Underground Storage of Gas, Operation and Maintenace, salt cavern (units converted)"
-gas storage,investment,0.03,EUR/kWh,Danish Energy Agency,"150 Underground Storage of Gas, Establishment of one cavern (units converted)"
-gas storage,lifetime,100.0,years,TODO no source,"estimation: most underground storage are already build, they do have a long lifetime"
+gas storage,FOM,1.0,%/year,"Gorre, Jachin; Ortloff, Felix; van Leeuwen, Charlotte (2019): Production costs for synthetic methane in 2030 and 2050 of an optimized Power-to-Gas plant with intermediate hydrogen storage. In: Applied Energy 253, S. 113594.","150 Underground Storage of Gas, Operation and Maintenace, salt cavern (units converted)"
+gas storage,investment,4820.26,Euro/MWh_CH4,"Gorre, Jachin; Ortloff, Felix; van Leeuwen, Charlotte (2019): Production costs for synthetic methane in 2030 and 2050 of an optimized Power-to-Gas plant with intermediate hydrogen storage. In: Applied Energy 253, S. 113594.","150 Underground Storage of Gas, Establishment of one cavern (units converted)"
+gas storage,lifetime,20.0,years,eigene Annahmen,"estimation: most underground storage are already build, they do have a long lifetime"
 gas storage charger,investment,14.34,EUR/kW,Danish Energy Agency,"150 Underground Storage of Gas, Process equipment (units converted)"
 gas storage discharger,investment,4.78,EUR/kW,Danish Energy Agency,"150 Underground Storage of Gas, Process equipment (units converted)"
 geothermal,CO2 intensity,0.03,tCO2/MWhth,https://www.eia.gov/environment/emissions/co2_vol_mass.php, from old pypsa cost assumptions
@@ -414,8 +434,9 @@ home battery inverter,FOM,0.42,%/year,"Global Energy System based on 100% Renewa
 home battery inverter,efficiency,0.96,per unit,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Round trip efficiency DC
 home battery inverter,investment,186.57,EUR/kW,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Output capacity expansion cost investment
 home battery inverter,lifetime,10.0,years,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx, Note K.",:  Technical lifetime
-home battery storage,investment,169.68,EUR/kWh,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Energy storage expansion cost investment
-home battery storage,lifetime,27.5,years,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Technical lifetime
+home battery storage,FOM,1.0,%/year,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf",
+home battery storage,investment,662742.56,Euro/MWh,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf",:  Energy storage expansion cost investment
+home battery storage,lifetime,15.0,years,"Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019, Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",:  Technical lifetime
 hydro,FOM,1.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
 hydro,efficiency,0.9,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
 hydro,investment,2208.16,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
@@ -424,8 +445,9 @@ hydrogen storage compressor,FOM,4.0,%/year,"Based on Stöckl et al (2021): https
 hydrogen storage compressor,compression-electricity-input,0.05,MWh_el/MWh_H2,"Based on Stöckl et al (2021): https://doi.org/10.48550/arXiv.2005.03464, table SI.4.",
 hydrogen storage compressor,investment,79.42,EUR/kWh_H2,"Based on Stöckl et al (2021): https://doi.org/10.48550/arXiv.2005.03464, table SI.4.",
 hydrogen storage compressor,lifetime,15.0,years,"Based on Stöckl et al (2021): https://doi.org/10.48550/arXiv.2005.03464, table SI.4.",
-hydrogen storage tank,investment,11.2,USD/kWh,budischak2013, from old pypsa cost assumptions
-hydrogen storage tank,lifetime,20.0,years,budischak2013, from old pypsa cost assumptions
+hydrogen storage tank,FOM,1.5,%/year,"Gorre, Jachin; Ortloff, Felix; van Leeuwen, Charlotte (2019): Production costs for synthetic methane in 2030 and 2050 of an optimized Power-to-Gas plant with intermediate hydrogen storage. In: Applied Energy 253, S. 113594.",
+hydrogen storage tank,investment,16051.52,Euro/MWh_H2,"Gorre, Jachin; Ortloff, Felix; van Leeuwen, Charlotte (2019): Production costs for synthetic methane in 2030 and 2050 of an optimized Power-to-Gas plant with intermediate hydrogen storage. In: Applied Energy 253, S. 113594.",
+hydrogen storage tank,lifetime,20.0,years,"Gorre, Jachin; Ortloff, Felix; van Leeuwen, Charlotte (2019): Production costs for synthetic methane in 2030 and 2050 of an optimized Power-to-Gas plant with intermediate hydrogen storage. In: Applied Energy 253, S. 113594.",
 hydrogen storage tank incl. compressor,FOM,1.39,%/year,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",151a Hydrogen Storage - Tanks:  Fixed O&M
 hydrogen storage tank incl. compressor,investment,35.98,EUR/kWh,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",151a Hydrogen Storage - Tanks:  Specific investment
 hydrogen storage tank incl. compressor,lifetime,30.0,years,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",151a Hydrogen Storage - Tanks:  Technical lifetime
@@ -454,18 +476,20 @@ lignite,efficiency,0.33,per unit,Lazard s Levelized Cost of Energy Analysis - Ve
 lignite,fuel,2.9,EUR/MWh_th,DIW,
 lignite,investment,3845.51,EUR/kW_e,Lazard s Levelized Cost of Energy Analysis - Version 13.0,
 lignite,lifetime,40.0,years,Lazard s Levelized Cost of Energy Analysis - Version 13.0,
-methanation,FOM,3.0,%/year,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.2.3.1",
+methanation,FOM,5.0,%/year,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
 methanation,capture rate,0.98,per unit,Assumption based on doi:10.1016/j.biombioe.2015.01.006,
-methanation,efficiency,0.8,per unit,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.2.3.1",
-methanation,investment,591.6,"EUR/MW_CH4; and
-EUR/kW_CH4","Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), table 6: “Reference scenario”.",
-methanation,lifetime,20.0,years,Guesstimate.,
+methanation,efficiency,0.79,per unit,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 95% (5% verfahrenstechnische Verluste),
+methanation,investment,317647.06,Euro/MW_el,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+methanation,lifetime,20.0,years,eigene Annahmen,
+methanation,thermal-output,0.09,MWh_th/MWh_H2,"Ausfelder, Florian; Beilmann, Christian; Bertau, Martin; Bräuninger, Sigmar; Heinzel, Angelika; Hoer, Renate et al. (2015): Energiespeicherung als Element einer sicheren Energieversorgung. In: Chemie Ingenieur Technik 87 (1-2), S. 17-89",
 methane storage tank incl. compressor,FOM,1.9,%/year,"Guesstimate, based on hydrogen storage tank by DEA.",
 methane storage tank incl. compressor,investment,8629.2,EUR/m^3,Storage costs per l: https://www.compositesworld.com/articles/pressure-vessels-for-alternative-fuels-2014-2023 (2021-02-10).,
 methane storage tank incl. compressor,lifetime,30.0,years,"Guesstimate, based on hydrogen storage tank by DEA.",
-methanolisation,FOM,3.0,%/year,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.3.2.1.",
-methanolisation,investment,608179.55,EUR/MW_MeOH,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), table 8: “Reference scenario”.",
-methanolisation,lifetime,20.0,years,"Danish Energy Agency, Technology Data for Renewable Fuels (04/2022), Data sheet “Methanol to Power”.",
+methanolisation,FOM,5.0,%/year,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+methanolisation,efficiency,0.79,per unit,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 95% (5% verfahrenstechnische Verluste),
+methanolisation,investment,317647.06,Euro/MW_el,"Eigene Annahmen auf Basis von Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+methanolisation,lifetime,20.0,years,eigene Annahmen,
+methanolisation,thermal-output,0.03,MWh_th/MWh_H2,"Balopi, Babusi; Agachi, Paul; Danha (2019): Methanol Synthesis Chemistry and Process Engineering Aspects- A Review with Consequence to Botswana Chemical Industries. In: Procedia Manufacturing 35, S. 367–376.",
 micro CHP,FOM,6.18,%/year,"Danish Energy Agency, technologydatafor_heating_installations_marts_2018.xlsx",219 LT-PEMFC mCHP - natural gas:  Fixed O&M
 micro CHP,efficiency,0.35,per unit,"Danish Energy Agency, technologydatafor_heating_installations_marts_2018.xlsx","219 LT-PEMFC mCHP - natural gas:  Electric efficiency, annual average, net"
 micro CHP,efficiency-heat,0.61,per unit,"Danish Energy Agency, technologydatafor_heating_installations_marts_2018.xlsx","219 LT-PEMFC mCHP - natural gas:  Heat efficiency, annual average, net"
@@ -491,13 +515,19 @@ oil,CO2 intensity,0.26,tCO2/MWh_th,Stoichiometric calculation with 44 GJ/t diese
 oil,FOM,2.45,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Fixed O&M
 oil,VOM,6.0,EUR/MWh,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Variable O&M
 oil,efficiency,0.35,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","50 Diesel engine farm:  Electricity efficiency, annual average"
-oil,fuel,50.0,EUR/MWhth,IEA WEM2017 97USD/boe = http://www.iea.org/media/weowebsite/2017/WEM_Documentation_WEO2017.pdf, from old pypsa cost assumptions
+oil,fuel,46.11,EUR/MWhth,"G. Moura and M. Howells, “SAMBA, The open source South American Model Base. A Brazilian Perspective on Long Term Power Systems Investment and Integration.,” Royal Institute of Technology (KTH), Sockholm, Work. Pap. Ser., no. DESA /15/8/11,  DOI: 10.13140/RG.2.1.3038.7042. Aug. 2015.",
 oil,investment,341.25,EUR/kW,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Specific investment
 oil,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Technical lifetime
 onwind,FOM,1.2,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Fixed O&M
 onwind,VOM,1.3,EUR/MWh,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Variable O&M
 onwind,investment,1006.56,EUR/kW,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Nominal investment 
 onwind,lifetime,30.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Technical lifetime
+onwind IEC class 1,FOM,4.0,%/year,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,
+onwind IEC class 1,investment,774702.04,Euro/MW_el,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,
+onwind IEC class 1,lifetime,20.0,years,,
+onwind IEC class 3,FOM,4.0,%/year,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,
+onwind IEC class 3,investment,851595.54,Euro/MW_el,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,
+onwind IEC class 3,lifetime,20.0,years,,
 ror,FOM,2.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
 ror,efficiency,0.9,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
 ror,investment,3312.24,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions
@@ -508,8 +538,8 @@ seawater desalination,investment,29589.74,EUR/(m^3-H2O/h),"Caldera et al 2017: L
 seawater desalination,lifetime,30.0,years,"Caldera et al 2016: Local cost of seawater RO desalination based on solar PV and windenergy: A global estimate. (https://doi.org/10.1016/j.desal.2016.02.004), Table 1.",
 solar,FOM,1.99,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Fixed O&M [2020-EUR/MW_e/y]
 solar,VOM,0.01,EUR/MWhel,RES costs made up to fix curtailment order, from old pypsa cost assumptions
-solar,investment,449.99,EUR/kW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Nominal investment [2020-MEUR/MW_e]
-solar,lifetime,40.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Technical lifetime [years]
+solar,investment,140015.36,EUR/kW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Nominal investment [2020-MEUR/MW_e]
+solar,lifetime,32.5,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Technical lifetime [years]
 solar-rooftop,FOM,1.48,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Fixed O&M [2020-EUR/MW_e/y]
 solar-rooftop,discount rate,0.04,per unit,standard for decentral, from old pypsa cost assumptions
 solar-rooftop,investment,580.91,EUR/kW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Nominal investment [2020-MEUR/MW_e]
@@ -520,9 +550,9 @@ solar-rooftop commercial,lifetime,40.0,years,"Danish Energy Agency, technology_d
 solar-rooftop residential,FOM,1.32,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Fixed O&M [2020-EUR/MW_e/y]
 solar-rooftop residential,investment,697.04,EUR/kW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Nominal investment [2020-MEUR/MW_e]
 solar-rooftop residential,lifetime,40.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Rooftop PV residential:  Technical lifetime [years]
-solar-utility,FOM,2.5,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Fixed O&M [2020-EUR/MW_e/y]
-solar-utility,investment,319.07,EUR/kW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Nominal investment [2020-MEUR/MW_e]
-solar-utility,lifetime,40.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Technical lifetime [years]
+solar-utility,FOM,2.5,%/year,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,22 Utility-scale PV:  Fixed O&M [2020-EUR/MW_e/y]
+solar-utility,investment,279449.82,Euro/MW_el,Eigene Annahmen auf Basis von IRENA (2018): Renewable Power Generation Costs in 2017. International Renewable Energy Agency. Abu Dhabi,22 Utility-scale PV:  Nominal investment [2020-MEUR/MW_e]
+solar-utility,lifetime,25.0,years,,22 Utility-scale PV:  Technical lifetime [years]
 solid biomass,CO2 intensity,0.37,tCO2/MWh_th,Stoichiometric calculation with 18 GJ/t_DM LHV and 50% C-content for solid biomass,
 solid biomass,fuel,12.0,EUR/MWh_th,"JRC ENSPRESO ca avg for MINBIOWOOW1 (secondary forest residue wood chips), ENS_Ref for 2040",
 solid biomass boiler steam,FOM,6.12,%/year,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",311.1e Steam boiler Wood:  Fixed O&M

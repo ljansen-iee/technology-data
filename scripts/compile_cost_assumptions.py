@@ -25,152 +25,10 @@ The script is structured as follows:
 @author: Marta, Lisa
 """
 
+from pathlib import Path
 import pandas as pd
 import numpy as np
 
-# ---------- sources -------------------------------------------------------
-source_dict = {
-                'DEA': 'Danish Energy Agency',
-                # solar utility
-                'Vartiaien': 'Impact of weighted average cost of capital, capital expenditure, and other parameters on future utility‐scale PV levelised cost of electricity',
-                # solar rooftop
-                'ETIP': 'European PV Technology and Innovation Platform',
-                # nuclear, coal, lignite
-                'Lazards': 'Lazard s Levelized Cost of Energy Analysis - Version 13.0',
-                # fuel cost
-                'zappa':  'Is a 100% renewable European power system feasible by 2050?',
-                # co2 intensity
-                "co2" :'Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2018',
-                # gas pipeline costs
-                "ISE": "WEGE ZU EINEM KLIMANEUTRALEN ENERGIESYSEM, Anhang zur Studie, Fraunhofer-Institut für Solare Energiesysteme ISE, Freiburg",
-                # Water desalination costs
-                "Caldera2016": "Caldera et al 2016: Local cost of seawater RO desalination based on solar PV and windenergy: A global estimate. (https://doi.org/10.1016/j.desal.2016.02.004)",
-                "Caldera2017": "Caldera et al 2017: Learning Curve for Seawater Reverse Osmosis Desalination Plants: Capital Cost Trend of the Past, Present, and Future (https://doi.org/10.1002/2017WR021402)",
-                # home battery storage and inverter investment costs
-                "EWG": "Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019",
-                "HyNOW" : "Zech et.al. DBFZ Report Nr. 19. Hy-NOW - Evaluierung der Verfahren und Technologien für die Bereitstellung von Wasserstoff auf Basis von Biomasse, DBFZ, 2014",
-		# efficiencies + lifetime SMR / SMR + CC
-                "IEA": "IEA Global average levelised cost of hydrogen production by energy source and technology, 2019 and 2050 (2020), https://www.iea.org/data-and-statistics/charts/global-average-levelised-cost-of-hydrogen-production-by-energy-source-and-technology-2019-and-2050",
-                # SMR capture rate
-                "Timmerberg": "Hydrogen and hydrogen-derived fuels through methane decomposition of natural gas – GHG emissions and costs Timmerberg et al. (2020), https://doi.org/10.1016/j.ecmx.2020.100043"
-                }
-
-# [DEA-sheet-names]
-sheet_names = {'onwind': '20 Onshore turbines',
-               'offwind': '21 Offshore turbines',
-               'solar-utility': '22 Utility-scale PV',
-               'solar-rooftop residential': '22 Rooftop PV residential',
-               'solar-rooftop commercial': '22 Rooftop PV commercial',
-               'OCGT': '52 OCGT - Natural gas',
-               'CCGT': '05 Gas turb. CC, steam extract.',
-               'oil': '50 Diesel engine farm',
-               'biomass CHP': '09c Straw, Large, 40 degree',
-               'biomass EOP': '09c Straw, Large, 40 degree',
-               'biomass HOP': '09c Straw HOP',
-               'central coal CHP': '01 Coal CHP',
-               'central gas CHP': '04 Gas turb. simple cycle, L',
-               'central solid biomass CHP': '09a Wood Chips, Large 50 degree',
-               'central air-sourced heat pump': '40 Comp. hp, airsource 3 MW',
-               'central ground-sourced heat pump': '40 Absorption heat pump, DH',
-               'central resistive heater': '41 Electric Boilers',
-               'central gas boiler': '44 Natural Gas DH Only',
-               'decentral gas boiler': '202 Natural gas boiler',
-               'decentral ground-sourced heat pump': '207.7 Ground source existing',
-               'decentral air-sourced heat pump': '207.3 Air to water existing',
-               # 'decentral resistive heater': '216 Electric heating',
-               'central water tank storage': '140 PTES seasonal',
-               # 'decentral water tank storage': '142 Small scale hot water tank',
-               'fuel cell': '12 LT-PEMFC CHP',
-               'hydrogen storage underground': '151c Hydrogen Storage - Caverns',
-               'hydrogen storage tank incl. compressor': '151a Hydrogen Storage - Tanks',
-               'micro CHP': '219 LT-PEMFC mCHP - natural gas',
-               'biogas' : '81 Biogas Plant, Basic conf.',
-               'biogas upgrading': '82 Biogas, upgrading',
-               'battery': '180 Lithium Ion Battery',
-               'industrial heat pump medium temperature': '302.a High temp. hp Up to 125 C',
-               'industrial heat pump high temperature': '302.b High temp. hp Up to 150',
-               'electric boiler steam': '310.1 Electric boiler steam  ',
-               'gas boiler steam': '311.1c Steam boiler Gas',
-               'solid biomass boiler steam': '311.1e Steam boiler Wood',
-               'biomass boiler': '204 Biomass boiler, automatic',
-               'electrolysis': snakemake.config['dea_electrolysis'], #'86 AEC 100MW', #'88 Alkaline Electrolyser',
-               'direct air capture' : '403.a Direct air capture',
-               'biomass CHP capture' : '401.a Post comb - small CHP',
-               'cement capture' : '401.c Post comb - Cement kiln',
-               'BioSNG' : '84 Gasif. CFB, Bio-SNG',
-               'BtL' : '85 Gasif. Ent. Flow FT, liq fu ',
-               'biogas plus hydrogen': '99 SNG from methan. of biogas',
-               #'methanolisation': '98 Methanol from power',
-               #'Fischer-Tropsch': '102 Hydrogen to Jet',
-               'Haber-Bosch': '103 Hydrogen to Ammonia',
-               'air separation unit': '103 Hydrogen to Ammonia',
-               # 'electricity distribution rural': '101 2 el distri Rural',
-               # 'electricity distribution urban': '101 4 el distri  city',
-               # 'gas distribution rural': '102 7 gas  Rural',
-               # 'gas distribution urban': '102 9 gas City',
-               # 'DH distribution rural': '103_12 DH_Distribu Rural',
-               # 'DH distribution urban': '103_14 DH_Distribu City',
-               # 'DH distribution low T': '103_16 DH_Distr New area LTDH',
-               # 'gas pipeline': '102 6 gas Main distri line',
-               # "DH main transmission": "103_11 DH transmission",
-               }
-# [DEA-sheet-names]
-
-uncrtnty_lookup = {'onwind': 'J:K',
-                    'offwind': 'J:K',
-                    'solar-utility': 'J:K',
-                    'solar-rooftop residential':  'J:K',
-                    'solar-rooftop commercial':  'J:K',
-                    'OCGT': 'I:J',
-                    'CCGT': 'I:J',
-                    'oil': 'I:J',
-                    'biomass CHP': 'I:J',
-                    'biomass EOP': 'I:J',
-                    'biomass HOP': 'I:J',
-                    'central coal CHP': '',
-                    'central gas CHP': 'I:J',
-                    'central solid biomass CHP': 'I:J',
-                    # 'central solid biomass CHP CCS': 'I:J',
-                    'solar': '',
-                    'central air-sourced heat pump': 'J:K',
-                    'central ground-sourced heat pump': 'I:J',
-                    'central resistive heater': 'I:J',
-                    'central gas boiler': 'I:J',
-                    'decentral gas boiler': 'I:J',
-                    'decentral ground-sourced heat pump': 'I:J',
-                    'decentral air-sourced heat pump': 'I:J',
-                    'central water tank storage': 'J:K',
-                    'fuel cell': 'I:J',
-                    'hydrogen storage underground': 'J:K',
-                    'hydrogen storage tank incl. compressor': 'J:K',
-                    'micro CHP': 'I:J',
-                    'biogas': 'I:J',
-                    'biogas upgrading': 'I:J',
-                    'electrolysis': 'I:J',
-                    'battery': 'L,N',
-                    'direct air capture': 'I:J',
-                    'cement capture': 'I:J',
-                    'biomass CHP capture': 'I:J',
-                    'BioSNG' : 'I:J',
-                    'BtL' : 'J:K',
-                    'biogas plus hydrogen' : 'J:K',
-                    'industrial heat pump medium temperature':'H:I',
-                    'industrial heat pump high temperature':'H:I',
-                    'electric boiler steam':'H:I',
-                    'gas boiler steam':'H:I',
-                    'solid biomass boiler steam':'H:I',
-                    'biomass boiler': 'I:J',
-                    'Fischer-Tropsch': 'I:J',
-                    'Haber-Bosch': 'I:J',
-                    'air separation unit': 'I:J',
-                    'methanolisation': 'J:K',
-}
-
-# since February 2022 DEA uses a new format for the technology data
-# all excel sheets of updated technologies have a different layout and are
-# given in EUR_2020 money (instead of EUR_2015)
-new_format = ["solar-utility", 'solar-rooftop residential', 'solar-rooftop commercial',
-              "offwind"]
 # %% -------- FUNCTIONS ---------------------------------------------------
 
 def get_excel_sheets(excel_files):
@@ -1228,7 +1086,8 @@ def rename_pypsa_old(costs_pypsa):
 def add_manual_input(data):
 
     df = pd.read_csv(snakemake.input['manual_input'], quotechar='"',sep=',', keep_default_na=False)
-
+    df = df.sort_values(by=["technology", "parameter", "year"]) # np.interp expects increasing xp sequence
+    
     # Inflation adjustment for investment and VOM
     mask = df[df['parameter'].isin(['investment','VOM'])].index
     df.loc[mask, 'value'] /= (1+snakemake.config['rate_inflation'])**(df.loc[mask, 'currency_year']-snakemake.config['eur_year'])
@@ -1255,6 +1114,53 @@ def add_manual_input(data):
 
     return data
 
+def add_fraunhofer_iee_costs(data):
+    
+    df = pd.read_csv(snakemake.input['fraunhofer_iee_costs'], quotechar='"',sep=',', keep_default_na=False)
+    df = df.sort_values(by=["technology", "parameter", "year"]) # np.interp expects increasing xp sequence
+
+    # Inflation adjustment for investment, VOM, fuel
+    mask = df[df['parameter'].isin(['investment','VOM','fuel'])].index
+    df.loc[mask, 'value'] /= (1+snakemake.config['rate_inflation'])**(df.loc[mask, 'currency_year']-snakemake.config['eur_year'])
+
+    l = []
+    for tech in df['technology'].unique():
+        c0 = df[df['technology'] == tech]
+        for param in c0['parameter'].unique():
+
+            c = df.query('technology == @tech and parameter == @param')
+            
+            region_mask = c["macroregion"].isin([snakemake.config["macroregion"]])
+            if not c[region_mask].empty:
+                c = c[region_mask]
+                
+            uncertainty_mask = c["uncertainty"].isin([snakemake.config["expectation"]])
+            if not c[uncertainty_mask].empty:
+                c = c[uncertainty_mask]
+
+            s = pd.Series(index=snakemake.config['years'],
+                      data=np.interp(snakemake.config['years'], c['year'], c['value']),
+                      name=param)
+            s['parameter'] = param
+            s['technology'] = tech
+            for col in ['unit','source','further_description']:
+                s[col] = "; and\n".join(c[col].unique().astype(str))
+
+            l.append(s)
+
+    new_df = pd.DataFrame(l).set_index(['technology','parameter'])
+    
+    tot_index = data.index.append(new_df.index)
+    
+    print("************************************************************\nAdding IEE input.")
+    if not tot_index.is_unique:
+        duplicates = tot_index[tot_index.duplicated()]
+        print(f"The following duplicates are overwritten:\n {duplicates}!\n")
+        
+    print("************************************************************\n")
+    data = new_df.combine_first(data)
+    
+    return data
 
 def rename_ISE(costs_ISE):
     """
@@ -1580,11 +1486,157 @@ def add_mean_solar_rooftop(data):
 if __name__ == "__main__":
     if 'snakemake' not in globals():
         import os
-        from _helpers import mock_snakemake
-        os.chdir(os.path.join(os.getcwd(), "scripts"))
+        from _helpers import mock_snakemake        
+        if Path(os.getcwd()).parent.parts[-1] == "scripts":
+            os.chdir(Path(os.getcwd()).parent)
         snakemake = mock_snakemake("compile_cost_assumptions")
     
     years = snakemake.config['years']
+
+    # ---------- sources -------------------------------------------------------
+    source_dict = {
+                    'DEA': 'Danish Energy Agency',
+                    # solar utility
+                    'Vartiaien': 'Impact of weighted average cost of capital, capital expenditure, and other parameters on future utility‐scale PV levelised cost of electricity',
+                    # solar rooftop
+                    'ETIP': 'European PV Technology and Innovation Platform',
+                    # nuclear, coal, lignite
+                    'Lazards': 'Lazard s Levelized Cost of Energy Analysis - Version 13.0',
+                    # fuel cost
+                    'zappa':  'Is a 100% renewable European power system feasible by 2050?',
+                    # co2 intensity
+                    "co2" :'Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2018',
+                    # gas pipeline costs
+                    "ISE": "WEGE ZU EINEM KLIMANEUTRALEN ENERGIESYSEM, Anhang zur Studie, Fraunhofer-Institut für Solare Energiesysteme ISE, Freiburg",
+                    # Water desalination costs
+                    "Caldera2016": "Caldera et al 2016: Local cost of seawater RO desalination based on solar PV and windenergy: A global estimate. (https://doi.org/10.1016/j.desal.2016.02.004)",
+                    "Caldera2017": "Caldera et al 2017: Learning Curve for Seawater Reverse Osmosis Desalination Plants: Capital Cost Trend of the Past, Present, and Future (https://doi.org/10.1002/2017WR021402)",
+                    # home battery storage and inverter investment costs
+                    "EWG": "Global Energy System based on 100% Renewable Energy, Energywatchgroup/LTU University, 2019",
+                    "HyNOW" : "Zech et.al. DBFZ Report Nr. 19. Hy-NOW - Evaluierung der Verfahren und Technologien für die Bereitstellung von Wasserstoff auf Basis von Biomasse, DBFZ, 2014",
+            # efficiencies + lifetime SMR / SMR + CC
+                    "IEA": "IEA Global average levelised cost of hydrogen production by energy source and technology, 2019 and 2050 (2020), https://www.iea.org/data-and-statistics/charts/global-average-levelised-cost-of-hydrogen-production-by-energy-source-and-technology-2019-and-2050",
+                    # SMR capture rate
+                    "Timmerberg": "Hydrogen and hydrogen-derived fuels through methane decomposition of natural gas – GHG emissions and costs Timmerberg et al. (2020), https://doi.org/10.1016/j.ecmx.2020.100043"
+                    }
+
+    # [DEA-sheet-names]
+    sheet_names = {'onwind': '20 Onshore turbines',
+                'offwind': '21 Offshore turbines',
+                'solar-utility': '22 Utility-scale PV',
+                'solar-rooftop residential': '22 Rooftop PV residential',
+                'solar-rooftop commercial': '22 Rooftop PV commercial',
+                'OCGT': '52 OCGT - Natural gas',
+                'CCGT': '05 Gas turb. CC, steam extract.',
+                'oil': '50 Diesel engine farm',
+                'biomass CHP': '09c Straw, Large, 40 degree',
+                'biomass EOP': '09c Straw, Large, 40 degree',
+                'biomass HOP': '09c Straw HOP',
+                'central coal CHP': '01 Coal CHP',
+                'central gas CHP': '04 Gas turb. simple cycle, L',
+                'central solid biomass CHP': '09a Wood Chips, Large 50 degree',
+                'central air-sourced heat pump': '40 Comp. hp, airsource 3 MW',
+                'central ground-sourced heat pump': '40 Absorption heat pump, DH',
+                'central resistive heater': '41 Electric Boilers',
+                'central gas boiler': '44 Natural Gas DH Only',
+                'decentral gas boiler': '202 Natural gas boiler',
+                'decentral ground-sourced heat pump': '207.7 Ground source existing',
+                'decentral air-sourced heat pump': '207.3 Air to water existing',
+                # 'decentral resistive heater': '216 Electric heating',
+                'central water tank storage': '140 PTES seasonal',
+                # 'decentral water tank storage': '142 Small scale hot water tank',
+                'fuel cell': '12 LT-PEMFC CHP',
+                'hydrogen storage underground': '151c Hydrogen Storage - Caverns',
+                'hydrogen storage tank incl. compressor': '151a Hydrogen Storage - Tanks',
+                'micro CHP': '219 LT-PEMFC mCHP - natural gas',
+                'biogas' : '81 Biogas Plant, Basic conf.',
+                'biogas upgrading': '82 Biogas, upgrading',
+                'battery': '180 Lithium Ion Battery',
+                'industrial heat pump medium temperature': '302.a High temp. hp Up to 125 C',
+                'industrial heat pump high temperature': '302.b High temp. hp Up to 150',
+                'electric boiler steam': '310.1 Electric boiler steam  ',
+                'gas boiler steam': '311.1c Steam boiler Gas',
+                'solid biomass boiler steam': '311.1e Steam boiler Wood',
+                'biomass boiler': '204 Biomass boiler, automatic',
+                'electrolysis': snakemake.config['dea_electrolysis'], #'86 AEC 100MW', #'88 Alkaline Electrolyser',
+                'direct air capture' : '403.a Direct air capture',
+                'biomass CHP capture' : '401.a Post comb - small CHP',
+                'cement capture' : '401.c Post comb - Cement kiln',
+                'BioSNG' : '84 Gasif. CFB, Bio-SNG',
+                'BtL' : '85 Gasif. Ent. Flow FT, liq fu ',
+                'biogas plus hydrogen': '99 SNG from methan. of biogas',
+                #'methanolisation': '98 Methanol from power',
+                #'Fischer-Tropsch': '102 Hydrogen to Jet',
+                'Haber-Bosch': '103 Hydrogen to Ammonia',
+                'air separation unit': '103 Hydrogen to Ammonia',
+                # 'electricity distribution rural': '101 2 el distri Rural',
+                # 'electricity distribution urban': '101 4 el distri  city',
+                # 'gas distribution rural': '102 7 gas  Rural',
+                # 'gas distribution urban': '102 9 gas City',
+                # 'DH distribution rural': '103_12 DH_Distribu Rural',
+                # 'DH distribution urban': '103_14 DH_Distribu City',
+                # 'DH distribution low T': '103_16 DH_Distr New area LTDH',
+                # 'gas pipeline': '102 6 gas Main distri line',
+                # "DH main transmission": "103_11 DH transmission",
+                }
+    # [DEA-sheet-names]
+
+    uncrtnty_lookup = {'onwind': 'J:K',
+                        'offwind': 'J:K',
+                        'solar-utility': 'J:K',
+                        'solar-rooftop residential':  'J:K',
+                        'solar-rooftop commercial':  'J:K',
+                        'OCGT': 'I:J',
+                        'CCGT': 'I:J',
+                        'oil': 'I:J',
+                        'biomass CHP': 'I:J',
+                        'biomass EOP': 'I:J',
+                        'biomass HOP': 'I:J',
+                        'central coal CHP': '',
+                        'central gas CHP': 'I:J',
+                        'central solid biomass CHP': 'I:J',
+                        # 'central solid biomass CHP CCS': 'I:J',
+                        'solar': '',
+                        'central air-sourced heat pump': 'J:K',
+                        'central ground-sourced heat pump': 'I:J',
+                        'central resistive heater': 'I:J',
+                        'central gas boiler': 'I:J',
+                        'decentral gas boiler': 'I:J',
+                        'decentral ground-sourced heat pump': 'I:J',
+                        'decentral air-sourced heat pump': 'I:J',
+                        'central water tank storage': 'J:K',
+                        'fuel cell': 'I:J',
+                        'hydrogen storage underground': 'J:K',
+                        'hydrogen storage tank incl. compressor': 'J:K',
+                        'micro CHP': 'I:J',
+                        'biogas': 'I:J',
+                        'biogas upgrading': 'I:J',
+                        'electrolysis': 'I:J',
+                        'battery': 'L,N',
+                        'direct air capture': 'I:J',
+                        'cement capture': 'I:J',
+                        'biomass CHP capture': 'I:J',
+                        'BioSNG' : 'I:J',
+                        'BtL' : 'J:K',
+                        'biogas plus hydrogen' : 'J:K',
+                        'industrial heat pump medium temperature':'H:I',
+                        'industrial heat pump high temperature':'H:I',
+                        'electric boiler steam':'H:I',
+                        'gas boiler steam':'H:I',
+                        'solid biomass boiler steam':'H:I',
+                        'biomass boiler': 'I:J',
+                        'Fischer-Tropsch': 'I:J',
+                        'Haber-Bosch': 'I:J',
+                        'air separation unit': 'I:J',
+                        'methanolisation': 'J:K',
+    }
+
+    # since February 2022 DEA uses a new format for the technology data
+    # all excel sheets of updated technologies have a different layout and are
+    # given in EUR_2020 money (instead of EUR_2015)
+    new_format = ["solar-utility", 'solar-rooftop residential', 'solar-rooftop commercial',
+                "offwind"]
+
 
     # (1) DEA data
     # (a)-------- get data from DEA excel sheets ----------------------------------
@@ -1641,6 +1693,10 @@ if __name__ == "__main__":
     data = pd.concat([data, costs_ISE.loc[["Gasnetz"]]], sort=True)
 
     data = add_manual_input(data)
+    
+    if snakemake.config["use_fraunhofer_iee"]:
+        data = add_fraunhofer_iee_costs(data)
+    
     # add costs for home batteries
     data = add_home_battery_costs(data)
     # add SMR assumptions

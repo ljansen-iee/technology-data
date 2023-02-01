@@ -15,7 +15,8 @@ rule compile_cost_assumptions:
         dea_heating = "inputs/technologydatafor_heating_installations_marts_2018.xlsx",
         dea_industrial = "inputs/technology_data_for_industrial_process_heat.xlsx",
         dea_ccts = "inputs/technology_data_for_carbon_capture_transport_storage.xlsx",
-        manual_input = "inputs/manual_input.csv"
+        manual_input = "inputs/manual_input.csv",
+        fraunhofer_iee_costs = "inputs/Fraunhofer_IEE_costs.csv",
     output:
         expand("outputs/costs_{year}.csv", year = config["years"])
     threads: 1
