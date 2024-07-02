@@ -8,6 +8,10 @@ expectation : "" # tech data uncertainty, possible options [None, "optimist", "p
 #year for EUR outputs
 eur_year : 2023
 
+convert:
+    to: USD
+    annual_rate: 1.0824 #https://www.exchangerates.org.uk/EUR-USD-spot-exchange-rates-history-2023.html
+
 # add solar from different source
 solar_utility_from_vartiaien : false
 solar_rooftop_from_etip : false

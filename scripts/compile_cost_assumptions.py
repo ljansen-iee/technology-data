@@ -2472,7 +2472,7 @@ if __name__ == "__main__":
 
     # add manual inputs. Manual input will overwrite previous data.
     for fn in snakemake.config["manual_inputs"]:
-        data = add_manual_input(data, Path(Path.cwd()).parent / Path("inputs") / Path(fn))
+        data = add_manual_input(data, Path(Path.cwd()) / Path("inputs") / Path(fn))
 
     data.index.names = ["technology", "parameter"]
     # %% (3) ------ add additional sources and save cost as csv ------------------
