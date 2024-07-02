@@ -1,0 +1,13 @@
+technology,parameter,year,value,unit,currency_year,source,further_description
+gas,fuel,2030,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
+gas,fuel,2040,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
+gas,fuel,2050,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
+coal,fuel,2030,8.71,USD/MWhth,2023,IRP2023,
+coal,fuel,2040,8.71,USD/MWhth,2023,IRP2023,
+coal,fuel,2050,8.71,USD/MWhth,2023,IRP2023,
+oil,fuel,2030,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
+oil,fuel,2040,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
+oil,fuel,2050,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
+nuclear,fuel,2030,3.46,USD/MWhth,2023,IRP2023,
+nuclear,fuel,2040,3.46,USD/MWhth,2023,IRP2023,
+nuclear,fuel,2050,3.46,USD/MWhth,2023,IRP2023,

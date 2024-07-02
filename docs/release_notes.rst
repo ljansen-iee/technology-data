@@ -2,8 +2,135 @@
 Release Notes
 ##########################################
 
-Upcoming Release
-================
+.. Upcoming Release
+.. ================
+
+Technology-Data 0.9.0 (12 May 2024)
+===================================
+
+* update electrolyser investment costs based on latest communications (https://github.com/PyPSA/technology-data/pull/129)
+
+* add heavy duty and shipping technology assumptions from DEA (https://github.com/PyPSA/technology-data/pull/128)
+
+* add data for Organic Rankine Cycles (ORC) and geothermal energy (https://github.com/PyPSA/technology-data/pull/111)
+
+* bugfix for retrieving optimistic and pessimistic value ranges from DEA (https://github.com/PyPSA/technology-data/pull/130)
+
+* update ``mock_snakemake()`` to work with snakemake v8 (https://github.com/PyPSA/technology-data/pull/127)
+
+* compatibility with newer pandas versions (https://github.com/PyPSA/technology-data/pull/126)
+
+Technology-Data 0.8.1 (28 February 2024)
+========================================
+
+* adjust currency year in some DEA input data
+
+Technology-Data 0.8.0 (19 February 2024)
+=======================================
+
+* Update currency year from 2015 to 2020. Add a currency year for each data
+  input. The inflation rate is taken `Eurostat HICP - annual data (average index
+  and rate of change)
+  <https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/dataflow/ESTAT/prc_hicp_aind/1.0?references=descendants&detail=referencepartial&format=sdmx_2.1_generic&compressed=true>`_.
+
+Technology-Data 0.7.0 (7 February 2024)
+=======================================
+
+* Updated to latest release of DEA renewable fuels (released January 2024). With the following changes
+  * The following technologies have updated assumptions: ['BioSNG', 'BtL', 'Fischer-Tropsch', 'Haber-Bosch', 'air separation unit', 'biogas', 'biogas CC', 'biogas plus hydrogen', 'biogas upgrading', 'biomass-to-methanol', 'electrobiofuels', 'electrolysis', 'methanolisation']
+  * biogas upgrading and biogas plant are differentiated in new data set between small and large plant, we assume small plant here
+  * methanol from power changed to methanol from hydrogen, VOM are zero in new data set
+  * CAREFUL: biogas upgrading units changed for VOM and investment from per input to per output units
+
+* Add floating wind cost data
+
+* Add biomass-to-methanol route from DEA.
+
+* Add electric compression losses for hydrogen and gas pipelines from DEA.
+
+* Add methanol-to-kerosene from `Concawe report <https://www.concawe.eu/wp-content/uploads/Rpt_22-17.pdf>`_.
+
+* Add methanol-to-olefins/aromatics and steam cracker mostly from `DECHEMA report <https://dechema.de/dechema_media/Downloads/Positionspapiere/Technology_study_Low_carbon_energy_and_feedstock_for_the_European_chemical_industry.pdf>`_.
+
+* Added FOM for enhanced geothermal systems.
+
+* Added data for Organic Rankine Cycles.
+
+* Moved efficiency for electricity generation from geothermal to ORC.
+
+* Moved addition of geothermal data from `compile_cost_assumptions.py` to `manual_input.csv`.
+
+* Costs for 'fuel' provided in the manual_inputs.csv are now also adjusted for inflation.
+
+* Updated cost assumptions for 'nuclear', 'coal', and 'lignite' to Lazard's LCoE V16 (2023).
+
+* Updated source for 'fuel' costs of 'gas', 'uranium', 'coal', and 'lignite' to DIW (2013) data.
+
+* Updated hydrogen pipeline costs based on most recent `EHB report <https://ehb.eu/files/downloads/EHB-2023-20-Nov-FINAL-design.pdf>`_.
+
+Technology-Data 0.6.2 (7 August 2023)
+=====================================
+
+* Use DEA electrolysis and fuel cell assumptions by default.
+
+* Add steam generation of methanolisation process.
+
+* Use HVDC submarine cable cost from Härtel et al. (2017).
+
+Technology-Data 0.6.1 (4 August 2023)
+===========================================
+
+* New technologies
+  - direct iron ore reduction (cost assumptions, conversion efficiencies)
+  - dry bulk carrier Capesize (cost assumptions)
+  - electric arc furnace (cost assumptions, conversion efficiencies)
+  - shipping fuel methanol (cost assumptions, emission intensity)
+  - iron ore DRI-ready (cost assumptions)
+
+Technology-Data 0.6.0 (24 May 2023)
+===========================================
+
+* General:
+  - Fix 'further_description' column from 'manual_inputs.csv' not being correctly parsed by the workflow
+  - Adjust electrolysis currency year to 2015
+
+* Updated technologies
+  - updated cost assumptions for 'digestible biomass to hydrogen' and "solid biomass to hydrogen"
+  - Fix: Unit for methanation investment costs is now correctly displayed as "EUR/kW_CH4" (`#82 <https://github.com/PyPSA/technology-data/issues/82#event-8638160137>`_)
+  - Fix source and description for 'solar' and 'solar-rooftop' to correctly indicate how they are calculated
+
+* New technologies
+  - 17 new energy storage technologies
+  - new biomass technologies ('biogas CC', 'central gas CHP CC', 'central hydrogen CHP', 'central solid biomass CHP CC', 'central solid biomass CHP powerboost CC',
+'direct firing gas', 'direct firing gas CC', 'direct firing solid fuels', 'direct firing solid fuels CC', 'electrobiofuels', 'solid biomass boiler steam CC', 'waste CHP', 'waste CHP CC',
+pelletizing cost for pellets from solid biomass residues)
+  - "utility-scale single-axis tracking" PV (cost assumptions)
+  - H2 liquefaction (Conversion efficiency)
+  - CH4 liquefaction (Conversion efficiency)
+  - CO2 liquefaction (Conversion efficiency)
+  - LOHC hydrogenation (Conversion efficiency)
+  - Ammonia crackier (Conversion efficiency)
+  - Steam methane reforming (Conversion efficiency)
+  - Methanol steam reforming (Conversion efficiency)
+  - Fischer-Tropsch (Conversion efficiency)
+  - seawater RO desalination (Conversion efficiency)
+  - Haber-Bosch (Conversion efficiency)
+  - air separation unit (Conversion efficiency)
+  - direct air capture (Conversion efficiency)
+  - Added data for Enhanced Geothermal Systems, as given by Aghahosseini, Breyer 2020
+
+* Changed technologies
+  - methanation (Conversion efficiency)
+  - methanolisation (Conversion efficiency)
+
+* Features
+ - energy penalties for biomass usages, biogas and gas boilers with carbon capture (calculations will be provided in an upcoming paper
+* Bug fixes
+  - Fixed a bug that ommited 'further description' from manually added data
+
+Technology-Data 0.5.0 (08 Februrary 2023)
+===========================================
+
 * Updated technologies
   - biomass CHP: changed from Wood Pellets to Wood Chips which are generally used in biomass CHPs and more expensive.
   - solid biomass fuel to 12 EUR/MWh_th based on JRC ENSPRESO datasets
@@ -12,8 +139,13 @@ Upcoming Release
   - new biomass technologies (BioSNG, BtL, biogas, biogas plus hydrogen, digestible biomass,digestible biomass to hydrogen, electric boiler steam, gas boiler steam, industrial heat pump high temperature, solid biomass boiler steam, solid bioass to hydrogen, biomass boiler for decentral heating
   - hydrogen storage tank type 1: Low pressure hydrogen tank storage (up to 200 bar)
   - hydrogen storage compressor: Compressor for filling hydrogen storage tanks (compression from 30 to 250 bar)
+  - 18 new energy storage technologies from PNNL "Energy Storage Grand Challenge Cost and Performance Assessment 2022"
 
 * Enable easy debugging of scripts by allowing python execution/ debugging in scripts
+
+* Breaking changes
+  - Renamed "hydrogen storage tank incl. compressor" to "hydrogen storage tank type 1 including compressor" for more clarity on the technology and consistency
+  - Removed "hydrogen storage tank" technology assumption from old PyPSA assumptions which is superceeded by the "hydrogen storage tank type 1" assumptions
 
 Technology-Data 0.4.0 (22 July 2022)
 ===========================================

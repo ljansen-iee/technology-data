@@ -1,31 +1,26 @@
-version: 0.4.0
+version: 0.9.0
 
 # considered years for output data
 years : [2020, 2025, 2030, 2035, 2040, 2045, 2050]
 
-# Macroregion selection. Data with specific region definition override the default value. 
-macroregion: "LATAM"  #Options: LATAM
-
 expectation : "" # tech data uncertainty, possible options [None, "optimist", "pessimist"]
 
-rate_inflation : 0.02
-
 #year for EUR outputs
-#NB: 2015 is standard year in DEA, and DEA is NOT yet adjusted
-#if this is changed, only non-DEA
-# DEA takes for solar PV eur_year 2020!
-eur_year : 2015
+eur_year : 2023
 
 # add solar from different source
 solar_utility_from_vartiaien : false
 solar_rooftop_from_etip : false
 
-# add fuel cell/electrolysis efficiencies from Budischak (DEA assumptions very conservative)
-h2_from_budischak : false
-dea_electrolysis: '86 PEMEC 100MW' #'86 AEC 100MW', #'88 Alkaline Electrolyser',
+energy_storage_database:
+    h2_from_budischak: false  # add fuel cell/electrolysis efficiencies from Budischak (DEA assumptions very conservative)
+    ewg_home_battery: true  # add home battery data derived from DEA data and EWG study
+    pnnl_energy_storage:
+        add_data: true  # add storage data mainly from PNNL
+        approx_beyond_2030: ["same_as_2030"]  # ["geometric_series"] or ["same_as_2030"]
 
-# add and overwrite with fraunhofer iee data
-use_fraunhofer_iee: True
+# add and overwrite with manual inputs in the order of the file names.
+manual_inputs: ["manual_input.csv","fraunhofer_iee.csv","fraunhofer_iee-fuels_ptx.csv", "fraunhofer_iee-SA_study.csv"] #,"fraunhofer_iee-chile.csv"
 
 # remove grid connection costs from DEA for offwind because they are calculated
 # seperately in pypsa-eur
@@ -34,5 +29,4 @@ offwind_no_gridcosts : true
 desalination:
     salinity: 35 # in PSU (Practical Salinity Unit) = kg/m^3
 
-
-ndigits: 2
+ndigits: 4
