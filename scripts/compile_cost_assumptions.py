@@ -220,6 +220,8 @@ cost_year_2020 = ['solar-utility',
               'solar-rooftop commercial',
               'offwind',
               'electrolysis',
+              'electrolysis AEC',
+              'electrolysis PEMEC',
               'biogas',
               'biogas CC',
               'biogas upgrading',
@@ -1542,9 +1544,9 @@ def rename_pypsa_old(costs_pypsa):
 def add_manual_input(data, fn):
 
     df = pd.read_csv(fn, quotechar='"',sep=',', keep_default_na=False)
+    df = df.sort_values(by=["technology", "parameter", "year"]) # np.interp expects increasing xp sequence
     df = df.rename(columns={"further_description": "further description"})
 
-   
     l = []
     for tech in df['technology'].unique():
         c0 = df[df['technology'] == tech]
@@ -2470,7 +2472,7 @@ if __name__ == "__main__":
 
     # add manual inputs. Manual input will overwrite previous data.
     for fn in snakemake.config["manual_inputs"]:
-        data = add_manual_input(data, Path(Path.cwd()) / Path("inputs") / Path(fn))
+        data = add_manual_input(data, Path(Path.cwd()).parent / Path("inputs") / Path(fn))
 
     data.index.names = ["technology", "parameter"]
     # %% (3) ------ add additional sources and save cost as csv ------------------
@@ -2558,6 +2560,9 @@ if __name__ == "__main__":
         costs_tot["currency_year"] = costs_tot.currency_year.astype(float)
         costs_tot = adjust_for_inflation(inflation_rate, costs_tot, techs,
                                          costs_tot.currency_year, ["value"])
+
+        costs_tot.loc[costs_tot.unit.str.contains("EUR"), "value"] *= float(snakemake.config["convert"]["annual_rate"])
+        costs_tot["unit"] = costs_tot["unit"].str.replace("EUR",snakemake.config["convert"]["to"])
         
         # format and sort
         costs_tot.sort_index(inplace=True)
