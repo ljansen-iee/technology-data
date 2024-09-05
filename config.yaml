@@ -9,8 +9,9 @@ expectation : "" # tech data uncertainty, possible options [None, "optimist", "p
 eur_year : 2023
 
 convert:
+    #from: EUR
     to: USD
-    annual_rate: 1.0824 #https://www.exchangerates.org.uk/EUR-USD-spot-exchange-rates-history-2023.html
+    annual_exchange_rate: 1.0824 # for 2023: https://www.exchangerates.org.uk/EUR-USD-spot-exchange-rates-history-2023.html
 
 # add solar from different source
 solar_utility_from_vartiaien : false
@@ -33,4 +34,4 @@ offwind_no_gridcosts : true
 desalination:
     salinity: 35 # in PSU (Practical Salinity Unit) = kg/m^3
 
-ndigits: 4
+ndigits: 5

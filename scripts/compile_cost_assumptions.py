@@ -1541,39 +1541,6 @@ def rename_pypsa_old(costs_pypsa):
 
     return costs_pypsa
 
-def add_manual_input(data, fn):
-
-    df = pd.read_csv(fn, quotechar='"',sep=',', keep_default_na=False)
-    df = df.sort_values(by=["technology", "parameter", "year"]) # np.interp expects increasing xp sequence
-    df = df.rename(columns={"further_description": "further description"})
-
-    l = []
-    for tech in df['technology'].unique():
-        c0 = df[df['technology'] == tech]
-        for param in c0['parameter'].unique():
-
-            c = df.query('technology == @tech and parameter == @param')
-
-            s = pd.Series(index=snakemake.config['years'],
-                      data=np.interp(snakemake.config['years'], c['year'], c['value']),
-                      name=param)
-            s['parameter'] = param
-            s['technology'] = tech
-            try:
-                s["currency_year"] = int(c["currency_year"].values[0]) 
-            except ValueError:
-                s["currency_year"] = np.nan
-            for col in ['unit','source','further description']:
-                s[col] = "; and\n".join(c[col].unique().astype(str))
-            s = s.rename({"further_description":"further description"}) # match column name between manual_input and original TD workflow
-            l.append(s)
-
-    new_df = pd.DataFrame(l).set_index(['technology','parameter'])
-    data.index.set_names(["technology", "parameter"], inplace=True)
-    # overwrite DEA data with manual input
-    data = new_df.combine_first(data)
-
-    return data
 
 
 def rename_ISE(costs_ISE):
@@ -2349,6 +2316,42 @@ def add_energy_storage_database(costs, data_year):
 
     return pd.concat([costs, df]), tech
 
+def add_manual_input(data, fn):
+
+    df = pd.read_csv(fn, quotechar='"',sep=',', keep_default_na=False)
+    df = df.sort_values(by=["technology", "parameter", "year"]) # np.interp expects increasing xp sequence
+    df = df.rename(columns={"further_description": "further description"})
+
+    l = []
+    for tech in df['technology'].unique():
+        c0 = df[df['technology'] == tech]
+        for param in c0['parameter'].unique():
+
+            c = df.query('technology == @tech and parameter == @param')
+
+            s = pd.Series(index=snakemake.config['years'],
+                      data=np.interp(snakemake.config['years'], c['year'], c['value']),
+                      name=param)
+            s['parameter'] = param
+            s['technology'] = tech
+            try:
+                s["currency_year"] = int(c["currency_year"].values[0]) 
+            except ValueError:
+                s["currency_year"] = np.nan
+            for col in ['unit','source','further description']:
+                s[col] = "; and\n".join(c[col].unique().astype(str))
+            s = s.rename({"further_description":"further description"}) # match column name between manual_input and original TD workflow
+            l.append(s)
+
+    new_df = pd.DataFrame(l).set_index(['technology','parameter'])
+    data.index.set_names(["technology", "parameter"], inplace=True)
+    
+    
+    # overwrite DEA data with manual input
+    data = new_df.combine_first(data)
+
+    return data
+
 
 def prepare_inflation_rate(fn):
     """read in annual inflation rate from Eurostat
@@ -2374,6 +2377,7 @@ if __name__ == "__main__":
         from _helpers import mock_snakemake
         #os.chdir(os.path.join(os.getcwd(), "scripts"))
         snakemake = mock_snakemake("compile_cost_assumptions")
+        os.chdir(Path(__file__).parent.parent)
 
     years = snakemake.config['years']
     inflation_rate = prepare_inflation_rate(snakemake.input.inflation_rate)
@@ -2467,21 +2471,28 @@ if __name__ == "__main__":
         data = add_home_battery_costs(data)
     # add SMR assumptions
     data = add_SMR_data(data)
+    
+    # add manual inputs. Manual input will overwrite previous data.
+    manual_data = data.iloc[0:0] # save manual data input for overwriting costs again at the end
+    for fn in snakemake.config["manual_inputs"]:
+        data = add_manual_input(data, Path.cwd() / Path("inputs") / Path(fn))
+        manual_data = add_manual_input(data, Path.cwd() / Path("inputs") / Path(fn))
+        
     # add solar rooftop costs by taking the mean of commercial and residential
     data = add_mean_solar_rooftop(data)
 
-    # add manual inputs. Manual input will overwrite previous data.
-    for fn in snakemake.config["manual_inputs"]:
-        data = add_manual_input(data, Path(Path.cwd()) / Path("inputs") / Path(fn))
-
-    data.index.names = ["technology", "parameter"]
     # %% (3) ------ add additional sources and save cost as csv ------------------
-    # [RTD-target-multiindex-df]
-    for year in years:
-        costs = (data[[year, "unit", "source", "further description",
-                       "currency_year"]]
-                .rename(columns={year: "value"}))
+    
+    def extract_costs(data, year):
+        costs = (data[[year, "unit", "source", "further description", "currency_year"]]
+                    .rename(columns={year: "value"}))
         costs["value"] = costs["value"].astype(float)
+        return costs
+    
+    for year in years:
+
+        costs = extract_costs(data, year)
+        manual_costs = extract_costs(manual_data, year)
 
         # biomass is differentiated by biomass CHP and HOP
         costs.loc[('solid biomass', 'fuel'), 'value'] = 12
@@ -2517,7 +2528,10 @@ if __name__ == "__main__":
 
         # energy penalty of carbon capture
         costs = energy_penalty(costs)
-
+        
+        # overwrite again with manual inputs
+        costs = manual_costs.combine_first(costs)
+        
         # include old pypsa costs
         check = pd.concat([costs_pypsa, costs], sort=True)
 
@@ -2561,11 +2575,18 @@ if __name__ == "__main__":
         costs_tot = adjust_for_inflation(inflation_rate, costs_tot, techs,
                                          costs_tot.currency_year, ["value"])
 
-        costs_tot.loc[costs_tot.unit.str.contains("EUR"), "value"] *= float(snakemake.config["convert"]["annual_rate"])
+        costs_tot.loc[costs_tot.unit.str.contains("EUR"), "value"] *= float(snakemake.config["convert"]["annual_exchange_rate"])
         costs_tot["unit"] = costs_tot["unit"].str.replace("EUR",snakemake.config["convert"]["to"])
+        
+        # correct units to MW
+        costs_tot.loc[costs_tot.unit.str.contains("/kW"), "value"] *= 1e3
+        costs_tot.unit = costs_tot.unit.str.replace("/kW", "/MW")
+        costs_tot.loc[costs_tot.unit.str.contains("kW") & ~costs_tot.unit.str.contains("/kW"), "value"] /= 1e3
+        costs_tot.unit = costs_tot.unit.str.replace("kW", "MW")
         
         # format and sort
         costs_tot.sort_index(inplace=True)
         costs_tot.loc[:,'value'] = round(costs_tot.value.astype(float),
                                          snakemake.config.get("ndigits", 2))
+                                         
         costs_tot.to_csv([v for v in snakemake.output if str(year) in v][0])
