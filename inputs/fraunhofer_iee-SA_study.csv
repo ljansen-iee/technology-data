@@ -1,13 +1,25 @@
 technology,parameter,year,value,unit,currency_year,source,further_description
-gas,fuel,2030,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
-gas,fuel,2040,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
-gas,fuel,2050,33.60,USD/MWhth,2023,own assumption based on WEO2023 & IRP2019,
+gas,fuel,2030,33.69,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
+gas,fuel,2040,33.3,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
+gas,fuel,2050,33.0,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
 coal,fuel,2030,8.71,USD/MWhth,2023,IRP2023,
 coal,fuel,2040,8.71,USD/MWhth,2023,IRP2023,
 coal,fuel,2050,8.71,USD/MWhth,2023,IRP2023,
-oil,fuel,2030,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
-oil,fuel,2040,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
-oil,fuel,2050,73.9,USD/MWhth,2023,own assumption based on WEO2023 & Meridian2024,
-nuclear,fuel,2030,3.46,USD/MWhth,2023,IRP2023,
-nuclear,fuel,2040,3.46,USD/MWhth,2023,IRP2023,
-nuclear,fuel,2050,3.46,USD/MWhth,2023,IRP2023,
+oil,fuel,2030,55.0,USD/MWhth,2023,own assumption based on WEO2023, Border price
+oil,fuel,2040,52.3,USD/MWhth,2023,own assumption based on WEO2023, Border price
+oil,fuel,2050,49.5,USD/MWhth,2023,own assumption based on WEO2023, Border price
+nuclear,fuel,2030,2.74,USD/MWhth,2023,IRP2023,
+nuclear,fuel,2040,2.74,USD/MWhth,2023,IRP2023,
+nuclear,fuel,2050,2.74,USD/MWhth,2023,IRP2023,
+battery inverter,investment,2030,100.5,EUR/kW,2023,own assumption based on Meridian2020,
+battery inverter,investment,2040,87.94,EUR/kW,2023,own assumption based on Meridian2020,
+battery inverter,investment,2050,75.37,EUR/kW,2023,own assumption based on Meridian2020,
+battery storage,investment,2030,118.1,EUR/kWh,2023,own assumption based on Meridian2020,
+battery storage,investment,2040,103.33,EUR/kWh,2023,own assumption based on Meridian2020,
+battery storage,investment,2050,88.57,EUR/kWh,2023,own assumption based on Meridian2020,
+OCGT,investment,2030,626,EUR/kW,2023,Meridian2020,
+OCGT,investment,2040,626,EUR/kW,2023,Meridian2020,
+OCGT,investment,2050,626,EUR/kW,2023,Meridian2020,
+OCGT,lifetime,2030,30,years,2023,Meridian2020,
+OCGT,lifetime,2040,30,years,2023,Meridian2020,
+OCGT,lifetime,2050,30,years,2023,Meridian2020,
