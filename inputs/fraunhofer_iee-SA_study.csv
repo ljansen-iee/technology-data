@@ -1,11 +1,11 @@
 technology,parameter,year,value,unit,currency_year,source,further_description
 gas,fuel,2030,33.69,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
 gas,fuel,2040,33.3,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
-gas,fuel,2050,33.0,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
+gas,fuel,2050,33,USD/MWhth,2023,own assumption based on WEO2023 & IRP2023, Plant gate price
 coal,fuel,2030,8.71,USD/MWhth,2023,IRP2023,
 coal,fuel,2040,8.71,USD/MWhth,2023,IRP2023,
 coal,fuel,2050,8.71,USD/MWhth,2023,IRP2023,
-oil,fuel,2030,55.0,USD/MWhth,2023,own assumption based on WEO2023, Border price
+oil,fuel,2030,55,USD/MWhth,2023,own assumption based on WEO2023, Border price
 oil,fuel,2040,52.3,USD/MWhth,2023,own assumption based on WEO2023, Border price
 oil,fuel,2050,49.5,USD/MWhth,2023,own assumption based on WEO2023, Border price
 nuclear,fuel,2030,2.74,USD/MWhth,2023,IRP2023,
@@ -23,3 +23,13 @@ OCGT,investment,2050,626,EUR/kW,2023,Meridian2020,
 OCGT,lifetime,2030,30,years,2023,Meridian2020,
 OCGT,lifetime,2040,30,years,2023,Meridian2020,
 OCGT,lifetime,2050,30,years,2023,Meridian2020,
+Fischer-Tropsch,investment,2030,583136,EUR/MW_FT,2016,"Sasol Climate Change Report 2023; Prognos. Kosten und Transformationspfade für strombasierte Energieträger: Endbericht zum Projekt ""Transformationspfade und regulatorischer Rahmen für synthetische Brennstoffe"". Studie im Auftrag des Bundeministeriums für Wirtschaft und Energie. Unter Mitarbeit von Sven Kreidelmeyer, Hans Dambeck, Almut Kirchner und Marco Wünsch. Basel, Schweiz; 2020.",(value in kW_product conversion with synthesis efficiency)
+Fischer-Tropsch,FOM,2030,5,%/year,2016,"Own assumption based on Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+Fischer-Tropsch,lifetime,2030,20,years,,eigene Annahmen,
+Fischer-Tropsch,efficiency,2030,0.722844216,per unit,2016,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 90% (5% verfahrenstechnische Verluste),
+Fischer-Tropsch,thermal-output,2030,0.077217259,MWh_th/MWh_H2,2016,"Verdegaal, Wolfgang Michael; Becker, Sebastian; Olshausen, Christian von (2015): Power-to-Liquids: Synthetisches Rohöl aus CO 2, Wasser und Sonne. In: Chemie Ingenieur Technik 87 (4), S. 340-346.",Efficiency of the heat exchanger 2030-2050 remains the same
+Fischer-Tropsch,investment,2050,382176.0,EUR/MW_FT,2016,"Own assumption based on Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+Fischer-Tropsch,FOM,2050,5.000,%/year,2016,"Own assumption based on Ausfelder, Florian; Dura, Hanna Ewa (Hg.) (2018): Optionen für ein nachhaltiges Energiesystem mit Power-to-X Technologien. Herausforderungen - Potenziale - Methoden - Auswirkungen: 1. Roadmap des Kopernikus-Projektes ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X): erstellt im Rahmen der Roadmapping-Aktivitäten im Koperinkus-Projekt ""Power-to-X"": Flexible Nutzung erneuerbarer Ressourcen (P2X) gefördert durch das Bundesministerium für Bildung und Technologie. DECHEMA, Gesellschaft für Chemische Technik und Biotechnologie. 1. Auflage. Frankfurt am Main: DECHEMA Gesellschaft für Chemische Technik und Biotechnologie e.V. Online verfügbar unter edocs.tib.eu/files/e01fn18/1034723774.pdf",
+Fischer-Tropsch,lifetime,2050,20,years,,eigene Annahmen,
+Fischer-Tropsch,efficiency,2050,0.763,MWh_FT/MWh_H2,2016,Eigene Berechnungen auf Basis des Ablaufs der chemischen Reaktion und einem angesetzten Gütegrad der Reaktion von 95% (5% verfahrenstechnische Verluste),
+Fischer-Tropsch,thermal-output,2050,0.077,MWh_th/MWh_H2,2016,"Verdegaal, Wolfgang Michael; Becker, Sebastian; Olshausen, Christian von (2015): Power-to-Liquids: Synthetisches Rohöl aus CO 2, Wasser und Sonne. In: Chemie Ingenieur Technik 87 (4), S. 340-346.",Efficiency of the heat exchanger 2030-2050 remains the same

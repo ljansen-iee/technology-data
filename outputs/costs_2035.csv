@@ -303,6 +303,10 @@ H2 liquefaction,lifetime,20.0,years,"Stolzenburg, K.; Mubbala, R. (2013): Integr
 H2 pipeline,FOM,3.0,%/year,TODO, from old pypsa cost assumptions,2015.0
 H2 pipeline,investment,365.64136,USD/MW/km,Welder et al https://doi.org/10.1016/j.energy.2018.05.059, from old pypsa cost assumptions,2015.0
 H2 pipeline,lifetime,40.0,years,TODO, from old pypsa cost assumptions,2015.0
+H2O pipeline,FOM,4.0,%/year,Own assumption,,2022.0
+H2O pipeline,electricity-input,0.0045,MWh_el/m3H2O/1000km,African Development Bank Group (2022): https://www.afdb.org/sites/default/files/documents/publications/20102022_potential_role_of_green_hydrogen_003.pdf,,2022.0
+H2O pipeline,investment,0.00633,USD/m3_H2O/km,African Development Bank Group (2022): https://www.afdb.org/sites/default/files/documents/publications/20102022_potential_role_of_green_hydrogen_003.pdf,,2022.0
+H2O pipeline,lifetime,50.0,years,Own assumption,,2022.0
 HVAC overhead,FOM,2.0,%/year,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
 HVAC overhead,investment,572.17469,USD/MW/km,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
 HVAC overhead,lifetime,40.0,years,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
@@ -457,8 +461,8 @@ Ni-Zn-store,lifetime,15.0,years,"Viswanathan_2022, p.59 (p.81)","{'carrier': ['n
 OCGT,FOM,1.785,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Fixed O&M,2015.0
 OCGT,VOM,6.16249,USD/MWh,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Variable O&M,2015.0
 OCGT,efficiency,0.415,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","52 OCGT - Natural gas:  Electricity efficiency, annual average",2015.0
-OCGT,investment,677582.4,USD/MW,Meridian2020,,2023.0
-OCGT,lifetime,30.0,years,Meridian2020,,2023.0
+OCGT,investment,588025.26149,USD/MW,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Specific investment,2015.0
+OCGT,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Technical lifetime,2015.0
 PHS,FOM,1.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
 PHS,efficiency,0.75,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
 PHS,investment,2943838.79682,USD/MWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2010.0
@@ -548,11 +552,11 @@ air separation unit,investment,1916032.41661,USD/t_N2,"Ikäheimo, Jussi; Kiviluo
 air separation unit,lifetime,20.0,years,"Ikäheimo, Jussi; Kiviluoma, Juha; Weiss, Robert; Holttinen, Hannele (2018): Power-to-ammonia in future North European 100 % renewable power and heat system. In: International Journal of Hydrogen Energy 43 (36), S. 17295–17308.",,2018.0
 battery inverter,FOM,0.41538,%/year,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Fixed O&M,2015.0
 battery inverter,efficiency,0.96,per unit,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Round trip efficiency DC,2015.0
-battery inverter,investment,101983.728,USD/MW,own assumption based on Meridian2020,,2023.0
+battery inverter,investment,178027.62988,USD/MW,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx",:  Output capacity expansion cost investment,2015.0
 battery inverter,lifetime,10.0,years,"Danish Energy Agency, technology_data_catalogue_for_energy_storage.xlsx, Note K.",:  Technical lifetime,2015.0
 battery storage,FOM,1.0,%/year,"Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf","Conversion from MW_el to MWh_el over the assumed storage volume of 4h; and
 ",2017.0
-battery storage,investment,119837.916,USD/MWh,own assumption based on Meridian2020,,2023.0
+battery storage,investment,267313.85861,USD/MWh_el,"Pfennig, Maximilian; Gerhardt, Norman; Pape, Carsten; Böttger, Diana (2017): MITTEL- UND LANGFRISTIGE POTENZIALE VON PTL- UND H2-IMPORTEN AUS INTERNATIONALEN EE-VORZUGSREGIONEN. Teilbericht im Rahmen des Projektes: KLIMAWIRKSAMKEIT ELEKTROMOBILITÄT. Hg. v. Fraunhofer IWES. Kassel. Online verfügbar unter www.energieversorgung-elektromobilitaet.de/includes/reports/Teilbericht_Potenziale_PtL_H2_Importe_FraunhoferIWES.pdf",,2017.0
 battery storage,lifetime,15.0,years,"Danish Energy Agency: Technology Data Catalogue for Electricity and district heating production - Updated April 2020. Online verfügbar unter ens.dk/sites/ens.dk/files/Statistik/technology_data_catalogue_for_el_and_dh_-_0009.pdf, zuletzt geprüft am 17.05.2021.",,2017.0
 biogas,CO2 stored,0.08679,tCO2/MWh_th,"Stoichiometric calculation, doi:10.1016/j.apenergy.2022.120016",,
 biogas,FOM,7.77689,%/year,"Danish Energy Agency, data_sheets_for_renewable_fuels.xlsx","81 Biogas, Basic plant, small:  Total O&M",2020.0
@@ -723,7 +727,7 @@ coal,CO2 intensity,0.33613,tCO2/MWh_th,Entwicklung der spezifischen Kohlendioxid
 coal,FOM,1.31,%/year,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (39.5+91.25) USD/kW_e/a /2 / (1.09 USD/EUR) / investment cost * 100.",2023.0
 coal,VOM,4.22037,USD/MWh_e,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (3+5.5)USD/MWh_e/2 / (1.09 USD/EUR).",2023.0
 coal,efficiency,0.33,p.u.,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. 1 / ((8.75+12) MMbtu/MWh_th /2 / (3.4095 MMbtu/MWh_th)), rounded up.",2023.0
-coal,fuel,8.71,USD/MWhth,IRP2023,,2023.0
+coal,fuel,12.36412,USD/MWh_th,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.","Based on IEA 2011 data, 99 USD/t.",2010.0
 coal,investment,4952726.856,USD/MW_e,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Higher costs include coal plants with CCS, but since using here for calculating the average nevertheless. Calculated based on average of listed range, i.e. (3200+6775) USD/kW_e/2 / (1.09 USD/EUR).",2023.0
 coal,lifetime,40.0,years,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.",,2023.0
 csp-tower,FOM,1.2,%/year,ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power),Ratio between CAPEX and FOM from ATB database for “moderate” scenario.,1.0
@@ -878,7 +882,7 @@ fuel cell,efficiency,0.5,per unit,"Danish Energy Agency, technology_data_for_el_
 fuel cell,investment,1403679.38942,USD/MW_e,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Nominal investment,2015.0
 fuel cell,lifetime,10.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Technical lifetime,2015.0
 gas,CO2 intensity,0.198,tCO2/MWh_th,Stoichiometric calculation with 50 GJ/t CH4,,
-gas,fuel,33.495,USD/MWhth,own assumption based on WEO2023 & IRP2023, Plant gate price,2023.0
+gas,fuel,31.79346,USD/MWh_th,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.",Based on IEA 2011 data.,2010.0
 gas boiler steam,FOM,4.07,%/year,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",311.1c Steam boiler Gas:  Fixed O&M,2019.0
 gas boiler steam,VOM,1.30316,USD/MWh,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx",311.1c Steam boiler Gas:  Variable O&M,2019.0
 gas boiler steam,efficiency,0.93,per unit,"Danish Energy Agency, technology_data_for_industrial_process_heat.xlsx","311.1c Steam boiler Gas:  Total efficiency, net, annual average",2019.0
@@ -993,7 +997,7 @@ nh3_pem,fuel,119.19043,USD/MWhel,"Own calculations based on Pfennig, M., Böttge
 nuclear,FOM,1.27,%/year,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","U.S. specific costs including newly commissioned Vogtle plant, average of range and currency converted, i.e. (131.5+152.75)/2 USD/kW_e / (1.09 USD/EUR) relative to investment costs.",2023.0
 nuclear,VOM,4.58938,USD/MWh_e,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","U.S. specific costs including newly commissioned Vogtle plant, average of range and currency converted, i.e. (4.25+5)/2 USD/kW_e / (1.09 USD/EUR) .",2023.0
 nuclear,efficiency,0.326,p.u.,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Based on heat rate of 10.45 MMBtu/MWh_e and 3.4095 MMBtu/MWh_th, i.e. 1/(10.45/3.4095) = 0.3260.",2023.0
-nuclear,fuel,2.74,USD/MWhth,IRP2023,,2023.0
+nuclear,fuel,4.41576,USD/MWh_th,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.",Based on IEA 2011 data.,2010.0
 nuclear,investment,11121660.0,USD/MW_e,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","U.S. specific costs including newly commissioned Vogtle plant, average of range and currency converted, i.e. (8475+13925)/2 USD/kW_e / (1.09 USD/EUR) .",2023.0
 nuclear,lifetime,40.0,years,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.",,2023.0
 offwind,FOM,2.24997,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","21 Offshore turbines:  Fixed O&M [EUR/MW_e/y, 2020]",2020.0
@@ -1016,7 +1020,7 @@ oil,CO2 intensity,0.25714,tCO2/MWh_th,Stoichiometric calculation with 44 GJ/t di
 oil,FOM,2.44982,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Fixed O&M,2015.0
 oil,VOM,8.21666,USD/MWh,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Variable O&M,2015.0
 oil,efficiency,0.35,per unit,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx","50 Diesel engine farm:  Electricity efficiency, annual average",2015.0
-oil,fuel,53.65,USD/MWhth,own assumption based on WEO2023, Border price,2023.0
+oil,fuel,68.47217,USD/MWhth,IEA WEM2017 97USD/boe = http://www.iea.org/media/weowebsite/2017/WEM_Documentation_WEO2017.pdf, from old pypsa cost assumptions,2015.0
 oil,investment,467322.52843,USD/MW,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Specific investment,2015.0
 oil,lifetime,25.0,years,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Technical lifetime,2015.0
 onwind,FOM,1.20171,%/year,"Danish Energy Agency, technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Fixed O&M,2015.0
